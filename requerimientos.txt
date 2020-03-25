@@ -1,0 +1,25 @@
+Requerimientos:
+Usuarios anónimos pero con propia cuenta
+Autenticación simple (cédula, no se sabe si contraseña)
+
+
+¿Qué síntoma tienes? (selección múltiple)
+Fiebre
+Escalofríos
+Vómito
+Debilidad
+
+¿Tienes dolor en alguna parte específica de tu cuerpo?
+Sí
+No
+
+(Si respondió Sí) ¿Dónde?
+Cabeza
+Torso
+Espalda
+Estómago
+
+
+Caso de uso:
+Si tiene vómito y ha tenido relaciones sexuales ultimamente: embarazo
+Si tiene vómito y no ha tenido relaciones sexuales ultimamente: otra cosa
