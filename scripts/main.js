@@ -1,18 +1,22 @@
 var registro = document.querySelector('.registro');
 var diagnostico = document.querySelector('.diagnostico');
 
+var nombreUsuario = document.querySelector('.nombre-usuario');
+
 // ocultar grupo de diagnóstico
 diagnostico.style.display = 'none';
 
 // 1. elemento que va a disparar el evento -> input
 // 2. tipo de evento a escuchar -> keydown
 // 3. acción a realizar cuando este evento se dispare -> function irAlDiagnostico
-var inputNombre = document.querySelector('.nombre-usuario');
+var inputNombre = document.querySelector('.input-nombre');
 function irAlDiagnostico (event) {
   if(event.keyCode == 13 && inputNombre.value != ''){
     // mostrar diagnóstico y ocultar registro
     registro.style.display = 'none';
     diagnostico.style.display = 'block';
+    // cambiar contenido del nombre
+    nombreUsuario.innerText = inputNombre.value;
   }
 }
 inputNombre.addEventListener('keydown', irAlDiagnostico);
