@@ -1,20 +1,34 @@
+var registro = document.querySelector('.registro');
+var diagnostico = document.querySelector('.diagnostico');
+
+// ocultar grupo de diagnóstico
+diagnostico.style.display = 'none';
+
+// 1. elemento que va a disparar el evento -> input
+// 2. tipo de evento a escuchar -> keydown
+// 3. acción a realizar cuando este evento se dispare -> function irAlDiagnostico
+var inputNombre = document.querySelector('.nombre-usuario');
+function irAlDiagnostico (event) {
+  if(event.keyCode == 13 && inputNombre.value != ''){
+    // mostrar diagnóstico y ocultar registro
+    registro.style.display = 'none';
+    diagnostico.style.display = 'block';
+  }
+}
+inputNombre.addEventListener('keydown', irAlDiagnostico);
+
 
 // buscar en el html elementos que tengan la clase síntoma
 var sintomas = document.querySelectorAll('.sintoma');
 
-var fiebre = document.querySelector('.fiebre');
-var escalofrios = document.querySelector('.escalofrios');
-var vomito = document.querySelector('.vomito');
-var debilidad = document.querySelector('.debilidad');
-
 // buscar en el html un elemento de tipo button
 var button = document.querySelector('button');
 
-var diagnosticos = new Map();
-diagnosticos.set('escalofrios fiebre', 'algo maluco');
-diagnosticos.set('escalofrios fiebre vomito', 'algo peor');
-diagnosticos.set('fiebre', 'solo tiene fiebre');
-diagnosticos.set('vertigo vomito', 'rezar');
+var match = new Map();
+match.set('escalofrios fiebre', 'algo maluco');
+match.set('escalofrios fiebre vomito', 'algo peor');
+match.set('fiebre', 'solo tiene fiebre');
+match.set('vertigo vomito', 'rezar');
 
 // función a ejecutar cuando el evento se dispare
 function clickEnBoton () {
@@ -36,7 +50,7 @@ function clickEnBoton () {
   }
   sintomasPresentados.sort(compararLex);
 
-  console.log(diagnosticos.get(sintomasPresentados.join(' ')));
+  console.log(match.get(sintomasPresentados.join(' ')));
 }
 // creamos un "escuchador" del evento tipo click en el elemento button
 button.addEventListener('click', clickEnBoton);
